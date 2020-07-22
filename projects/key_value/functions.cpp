@@ -1,16 +1,16 @@
 #include "key_value.h"
 
 // Buffer declarations
-dyn_var<char**> key_list(true);
-dyn_var<int*> key_to_value(true);
-dyn_var<int> total_keys(true);
-dyn_var<void**> value_list(true);
+mpns::buffer_t<char**> key_list("key_list");
+mpns::buffer_t<int*> key_to_value("key_to_value");
+mpns::buffer_t<int> total_keys("total_keys");
+mpns::buffer_t<void**> value_list("value_list");
 
 
 // Function declarations
-dyn_var<int(char*)> retrieve_key(true);
-dyn_var<void* (int)> retrieve_value(true);
-dyn_var<void* (char*)> search(true);
+mpns::function_t<int(char*)> retrieve_key("retrieve_key");
+mpns::function_t<void* (int)> retrieve_value("retrieve_value");
+mpns::function_t<void* (char*)> search("search");
 
 // Function implementations
 int_t retrieve_key_impl(cstr_t key) {
@@ -36,4 +36,4 @@ void_t search_impl(cstr_t key) {
 
 
 // Library functions declarations
-dyn_var<int(char*, char*)> strcmp_f(true);
+mpns::function_t<int(char*, char*)> strcmp_f("strcmp");

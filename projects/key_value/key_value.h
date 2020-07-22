@@ -10,16 +10,16 @@ typedef dyn_var<char*> cstr_t;
 
 
 // Buffer declarations
-extern dyn_var<char**> key_list;
-extern dyn_var<int*> key_to_value;
-extern dyn_var<int> total_keys;
-extern dyn_var<void**> value_list;
+extern mpns::buffer_t<char[128]> key_list;
+extern mpns::buffer_t<int[128]> key_to_value;
+extern mpns::buffer_t<int> total_keys;
+extern mpns::buffer_t<void**> value_list;
 
 
 // Function declarations
-extern dyn_var<int(char*)> retrieve_key;
-extern dyn_var<void* (int)> retrieve_value;
-extern dyn_var<void* (char*)> search;
+extern mpns::function_t<int(char*)> retrieve_key;
+extern mpns::function_t<void* (int)> retrieve_value;
+extern mpns::function_t<void* (char*)> search;
 
 // Functions for update
 
@@ -33,5 +33,5 @@ extern void_t search_impl(cstr_t);
 
 
 // Library implementations without implementation
-extern dyn_var<int (char*, char*)> strcmp_f;
+extern mpns::function_t<int (char*, char*)> strcmp_f;
 #endif
